@@ -1,8 +1,20 @@
 # GOST Checker
 
+[![CI](https://github.com/Metsubou9/gost-checker/actions/workflows/ci.yml/badge.svg)](https://github.com/Metsubou9/gost-checker/actions/workflows/ci.yml)
+[![pages](https://github.com/Metsubou9/gost-checker/actions/workflows/deploy.yml/badge.svg)](https://github.com/Metsubou9/gost-checker/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![demo](https://img.shields.io/badge/demo-online-2f6fed.svg)](https://metsubou9.github.io/gost-checker/)
+
 Проверка оформления документов **Word (.docx)** на соответствие **ГОСТ 2.105-95** «ЕСКД. Общие требования к текстовым документам» — прямо в браузере, без загрузки файлов на сервер.
 
-> 🌐 Демо: `https://<ваш-логин>.github.io/gost-checker/` (после включения GitHub Pages)
+> 🌐 **Демо:** [metsubou9.github.io/gost-checker](https://metsubou9.github.io/gost-checker/)
+
+## Скриншоты
+
+| Стартовый экран | Отчёт о проверке | Настройки правил |
+|---|---|---|
+| ![Стартовый экран с dropzone](docs/screenshots/01-dropzone.png) | ![Отчёт с найденными нарушениями](docs/screenshots/02-report.png) | ![Настройки правил](docs/screenshots/03-settings.png) |
+| *Перетащите .docx — всё считается локально* | *Нарушения с фрагментом, пунктом ГОСТ и советом* | *Каждое правило можно настроить или отключить* |
 
 ## Что проверяется
 
@@ -46,6 +58,15 @@ npm run build    # typecheck + production build в dist/
 3. Workflow `deploy.yml` соберёт и опубликует сайт при каждом push в `main`.
 
 Базовый путь уже настроен (`base: "/gost-checker/"` в `vite.config.ts`) — если назовёте репозиторий иначе, поправьте его.
+
+## Планы (Roadmap)
+
+- [ ] Адаптер для **.xlsx** — проверка оформления таблиц
+- [ ] Профиль **ГОСТ 7.32-2017** (отчёты о НИР)
+- [ ] Поддержка **.odt** (OpenDocument)
+- [ ] Экспорт отчёта в **PDF**
+
+Хотите помочь? Посмотрите раздел [«Архитектура»](#архитектура): добавить профиль, правило или формат-адаптер несложно — любой пункт выше подходит как первый вклад.
 
 ## Архитектура
 
