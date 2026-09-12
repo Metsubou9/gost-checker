@@ -1,0 +1,116 @@
+:root {
+  --bg: #f4f6fb;
+  --panel: #ffffff;
+  --ink: #1c2333;
+  --muted: #5b6475;
+  --line: #dde3ee;
+  --accent: #2f6fed;
+  --accent-ink: #ffffff;
+  --err: #c62828;
+  --warn: #b26a00;
+  --info: #2f6fed;
+  --ok: #2e7d32;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+
+header.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+header.top h1 { font-size: 22px; margin: 0; }
+header.top .sub { color: var(--muted); font-size: 13px; }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.dropzone {
+  border: 2px dashed var(--line);
+  border-radius: 12px;
+  padding: 36px 16px;
+  text-align: center;
+  color: var(--muted);
+  transition: border-color 0.15s ease, background 0.15s ease;
+  cursor: pointer;
+}
+.dropzone.drag {
+  border-color: var(--accent);
+  background: #eef4ff;
+  color: var(--accent);
+}
+.dropzone b { color: var(--ink); }
+
+button {
+  font: inherit;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+button.primary:hover { filter: brightness(1.05); }
+button.ghost { background: transparent; }
+button:disabled { opacity: 0.5; cursor: default; }
+
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.spread { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+.stat { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.stat .n { font-size: 24px; font-weight: 700; }
+.stat .lbl { color: var(--muted); font-size: 12px; }
+.stat.err .n { color: var(--err); }
+.stat.warn .n { color: var(--warn); }
+.stat.info .n { color: var(--info); }
+.stat.ok .n { color: var(--ok); }
+
+.badge {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  border-radius: 999px; padding: 2px 8px; text-transform: uppercase;
+}
+.badge.error { background: #fdecea; color: var(--err); }
+.badge.warning { background: #fff3e0; color: var(--warn); }
+.badge.info { background: #e8f0fe; color: var(--info); }
+
+.violation { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin: 10px 0; }
+.violation .msg { font-weight: 600; }
+.violation .meta { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.violation .excerpt {
+  margin: 6px 0 0; padding: 6px 8px; background: #f7f9fe; border-radius: 6px;
+  font-size: 13px; color: #333; border-left: 3px solid var(--line);
+}
+.violation .sugg { margin: 6px 0 0; font-size: 13px; color: var(--ok); }
+.violation.error { border-left: 3px solid var(--err); }
+.violation.warning { border-left: 3px solid var(--warn); }
+.violation.info { border-left: 3px solid var(--info); }
+
+details.rules { border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; }
+details.rules summary { cursor: pointer; color: var(--muted); font-size: 14px; }
+.rule-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-top: 1px solid var(--line); }
+.rule-row:first-of-type { border-top: none; }
+.rule-row input[type="checkbox"] { width: 16px; height: 16px; }
+.rule-row .rid { color: var(--muted); font-size: 12px; }
+
+select, input[type="number"], input[type="text"] {
+  font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink);
+}
+
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.error-box {
+  background: #fdecea; color: var(--err); border: 1px solid #f5c6c0;
+  padding: 12px; border-radius: 10px; margin-bottom: 12px; white-space: pre-wrap;
+}
+footer { margin-top: 24px; color: var(--muted); font-size: 12px; }
